@@ -9,7 +9,7 @@ function interestCalculator(arr) {
   let interestData = [...arr];
   for (let each of interestData) {
     // determine rates using given conditions
-    if (each.principal >= 2500 && each.time > 1 && each.time <= 3) {
+    if (each.principal >= 2500 && each.time > 1 && each.time < 3) {
       each.rate = 3;
     } else if (each.principal >= 2500 && each.time >= 3 && !each.rate) {
       each.rate = 4;
@@ -19,7 +19,7 @@ function interestCalculator(arr) {
       each.rate = 1;
     }
     // calculate interest
-    each.interest = +((each.principal * each.rate * each.time) / 100);
+    each.interest = (each.principal * each.rate * each.time) / 100;
   }
 
   console.log(interestData);
