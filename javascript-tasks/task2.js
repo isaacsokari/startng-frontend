@@ -11,9 +11,9 @@ function interestCalculator(arr) {
     // determine rates using given conditions
     if (each.principal >= 2500 && each.time > 1 && each.time < 3) {
       each.rate = 3;
-    } else if (each.principal >= 2500 && each.time >= 3 && !each.rate) {
+    } else if (each.principal >= 2500 && each.time >= 3) {
       each.rate = 4;
-    } else if (each.principal < 2500 || (each.time <= 1 && !each.rate)) {
+    } else if (each.principal < 2500 || each.time <= 1) {
       each.rate = 2;
     } else {
       each.rate = 1;
