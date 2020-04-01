@@ -1,26 +1,46 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
 
 :root {
-  --form-width: 300px;
+  --form-width: 80vw;
+  --max-form-width: 380px;
 }
 * {
   box-sizing: border-box;
 }
 
+html {
+  margin: 0;
+}
+
 body {
+  background-image: url("img/1.png"), url("img/2.png"), url("img/3.png"),
+    url("img/last.png");
+  background-size: 15%, 15%, 15%, 15%;
+  background-position: left -1% top -15%, right -7.5% top -1%,
+    left -5% bottom -10%, right -5% bottom -5%;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
   background-color: #062863;
   font-family: "Source Sans Pro", sans-serif;
   position: relative;
   display: flex;
   flex-direction: column;
   place-items: center;
-  place-content: center;
-  /* padding: 48px 0; */
+  padding: 48px 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body a:first-of-type {
+  margin: 0;
+  height: 84px;
 }
 
 img {
   margin-bottom: 48px;
   line-height: 2;
+  width: 191px;
+  height: 36px;
 }
 
 .container {
@@ -29,12 +49,12 @@ img {
   display: flex;
   flex-direction: column;
   border-radius: 20px;
-  place-content: center;
   place-items: center;
   padding: 32px 32px 40px;
   max-width: 450px;
   width: 95%;
   height: 80%;
+  margin: 0;
 }
 
 .container h1 {
@@ -55,16 +75,15 @@ img {
 .container form {
   display: flex;
   flex-direction: column;
-  place-content: center;
   width: var(--form-width);
+  max-width: var(--max-form-width);
   font-size: 16px;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 
 .container form label {
   font-size: 12px;
   font-weight: bold;
-  box-sizing: content-box;
   margin-bottom: 10px;
   /* margin-top: 8px; */
 }
@@ -72,45 +91,143 @@ img {
 .container form input {
   background-color: #edf2f7;
   padding: 12px 8px 12px 12px;
-  margin-bottom: 2em;
+  margin-bottom: 32px;
   box-shadow: none;
   border: 0;
+  border-radius: 5px;
   width: inherit;
+  max-width: calc(380px);
+  height: 48px;
 }
 
 .container form select {
   background-color: #edf2f7;
+  margin-bottom: 2em;
+  height: 52px;
+  border: 0;
+  border-radius: 5px;
+}
+
+.container form .select {
+  position: relative;
+  display: inline-block;
+  background-color: #edf2f7;
   padding: 8px;
   width: inherit;
+  max-width: calc(380px);
   align-self: center;
   overflow: visible;
   margin-bottom: 2em;
+  height: 52px;
+  border: 0;
+  border-radius: 5px;
 }
 
-.container form select option {
+.select .value {
+  padding: 8px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 14px;
+  color: #4a5568;
+
+}
+
+.select .active,
+.select:focus {
+  outline: none;
+}
+
+.select .optList.hidden {
+  max-height: 0;
+  visibility: hidden;
+}
+
+/* .select li {
+  list-style-type: none;
   padding: inherit;
+  height: 32px;
+  font-family: "Source Sans Pro", "sans-serif";
+  padding: 8px 0;
+}  */
+
+.select .optList {
+  position: absolute;
+  cursor: default;
+  left: 0;
+  z-index : 2;
+  background-color: #fff;
+  list-style: none;
+  margin : 0;
+  padding: 8px;
+  box-sizing : border-box;
+  min-width : 100%;
+  width: var(--form-width);
+  max-width: var(--max-form-width);
+  max-height: 10em; /* 100px */
+  overflow-y: auto;
+  overflow-x: hidden;
+  line-height: 36px;
+  /* border: .2em solid #000;  */
+  /* border-top-width : .1em; 
+  border-radius: 0 0 .4em .4em; */
+
+  /* box-shadow: 0 .2em .4em rgba(0,0,0,.4);  */
+  /* background: #f0f0f0; */
+}
+
+.select .option {
+  padding: .2em .3em; /* 2px 3px */
+}
+
+.select .optList .option:hover {
+  background: #93b0e2;
+}
+
+svg {
+  position: absolute;
+  border-left: 1px solid #000;
+  z-index : 1;
+  top     : 0;
+  right   : 0;
+  transform: translate(-15px, 15px);
+  box-sizing : border-box;
+  padding : .1em 0 0 .4em; 
+  opacity: 0.2;
+  /* text-align : center; */
+}
+
+.select .value {
+  display  : inline-block;
+  width    : 100%;
+  overflow : hidden;
+  white-space : nowrap; 
+  text-overflow: ellipsis;
+  vertical-align: top;
 }
 
 .container form button {
   width: inherit;
+  max-width: calc(380px);
   background-color: rgb(8, 62, 158);
   color: #fff;
   padding: 20px 40px 16px;
   border-radius: 1.25rem 1.25rem 1.25rem 0;
   border: 0;
+  height: 57px;
   text-transform: uppercase;
   font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
 }
 
-body a {
+body a:last-of-type {
   color: #fff;
-  font: 12px Karla, sans-serif;
+  font: 12px "Source Sans Pro", sans-serif;
   margin-top: 32px;
   padding: 4px 12px;
   text-decoration: none;
 }
 
-body a:hover {
+body a:last-of-type:hover {
   text-decoration: underline;
 }
 
