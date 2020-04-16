@@ -26,7 +26,9 @@ function yuGiOh(num) {
       numArr.splice(numArr.indexOf(num), 1, "yu-oh");
     } else if (num % 2 !== 0 && num % 3 === 0 && num % 5 === 0) {
       numArr.splice(numArr.indexOf(num), 1, "gi-oh");
-    }
+    } else if (num % 2 === 0 && num % 3 === 0 && num % 5 === 0) {
+      numArr.splice(numArr.indexOf(num), 1, "yu-gi-oh");
+    } 
   });
 
   console.log(numArr);
