@@ -6,34 +6,31 @@ function yuGiOh(num) {
     return `${num} is not an integer.`;
   }
 
-  // create array of numbers from 1 to num
+  // create array of numbers or strings using given conditions
   let numArr = [];
   for (i = 1; i <= num; i++) {
-    numArr.push(i);
+    if (i % 2 === 0 && i % 3 !== 0 && i % 5 !== 0) {
+      numArr.push("yu");
+    } else if (i % 2 !== 0 && i % 3 === 0 && i % 5 !== 0) {
+      numArr.push("gi");
+    } else if (i % 2 !== 0 && i % 3 !== 0 && i % 5 === 0) {
+      numArr.push("oh");
+    } else if (i % 2 === 0 && i % 3 === 0 && i % 5 !== 0) {
+      numArr.push("yu-gi");
+    } else if (i % 2 === 0 && i % 3 !== 0 && i % 5 === 0) {
+      numArr.push("yu-oh");
+    } else if (i % 2 !== 0 && i % 3 === 0 && i % 5 === 0) {
+      numArr.push("gi-oh");
+    } else if (i % 2 === 0 && i % 3 === 0 && i % 5 === 0) {
+      numArr.push("yu-gi-oh");
+    } else {
+      numArr.push(i);
+    }
   }
-
-  // tests for divisibility and number replacement
-  numArr.map((num) => {
-    if (num % 2 === 0 && num % 3 !== 0 && num % 5 !== 0) {
-      numArr.splice(numArr.indexOf(num), 1, "yu");
-    } else if (num % 2 !== 0 && num % 3 === 0 && num % 5 !== 0) {
-      numArr.splice(numArr.indexOf(num), 1, "gi");
-    } else if (num % 2 !== 0 && num % 3 !== 0 && num % 5 === 0) {
-      numArr.splice(numArr.indexOf(num), 1, "oh");
-    } else if (num % 2 === 0 && num % 3 === 0 && num % 5 !== 0) {
-      numArr.splice(numArr.indexOf(num), 1, "yu-gi");
-    } else if (num % 2 === 0 && num % 3 !== 0 && num % 5 === 0) {
-      numArr.splice(numArr.indexOf(num), 1, "yu-oh");
-    } else if (num % 2 !== 0 && num % 3 === 0 && num % 5 === 0) {
-      numArr.splice(numArr.indexOf(num), 1, "gi-oh");
-    } else if (num % 2 === 0 && num % 3 === 0 && num % 5 === 0) {
-      numArr.splice(numArr.indexOf(num), 1, "yu-gi-oh");
-    } 
-  });
 
   console.log(numArr);
   return numArr;
 }
 
 yuGiOh(100);
-yuGiOh(69);
+yuGiOh(30);
